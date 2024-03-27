@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Brimson secured form</title>
+</head>
+<body>
+    <div id="sub-body">
+        <span id="tt">RENTAL APPLICATION FORM</span>
+        <div id="form-body">
+            <div class="txt-tt-box"><label for="fn"><span class="no">1.</span><span class="txt-tt"> Full name</span></label><span id="priority1" class="required"> Required *</span></div>
+            <input type="text" id="fn" class="short-text" placeholder="First Name">
+            <input type="text" id="ln"  class="short-text" placeholder="Last Name">
+            <div class="txt-tt-box"><label for="email"><span class="no">2.</span><span class="txt-tt"> Email</span></label><span id="priority2" class="required"> Required *</span></div>
+            <input type="email" id="email" class="short-text" placeholder="✉">
+            <div class="txt-tt-box"><label for="ha"><span class="no">3.</span><span class="txt-tt"> Your current home address</span></label><span id="priority3" class="required"> Required *</span></div>
+            <input id="ha" type="text" class="short-text" placeholder="&#x27a2;  Address">
+            <div class="txt-tt-box"><label for="pn"><span class="no">4.</span><span class="txt-tt"> Phone number</span></label><span id="priority4" class="required"> Required *</span></div>
+            <input type="tel" id="pn" class="short-text" placeholder="&#x260f">
+            <div class="txt-tt-box"><label for="occ"><span class="no">5.</span><span class="txt-tt"> Name and age of occupants moving in including  yourself
+            </span></label></div>
+            <textarea id="occ"  class="long-text" placeholder="&#x2630;"></textarea>
+            <div class="txt-tt-box"><label for="reas"><span class="no">6.</span><span class="txt-tt"> Reason for leaving your current home
+            </span></label> <span id="priority5" class="required"> Required *</span></div>
+            <textarea id="reas" class="long-text" placeholder="&#x2630;"></textarea>
+            <div class="txt-tt-box"><span class="no">7.</span><span class="txt-tt"> Your work status</span></div>
+            <div class='radio-option'><input name="work-status" value="Employed" checked class="rad" type="radio" ><span class="radio-tt">   Employed</span></div>
+            <div class='radio-option'><input name="work-status" value="Unemployed" class="rad" type="radio" ><span class="radio-tt">   Unemployed</span></div>
+            <div class='radio-option'><input name="work-status" value="Self employed" class="rad" type="radio" ><span class="radio-tt">   Self employed</span></div>
+            <div class='radio-option'><input name="work-status" value="Student" class="rad" type="radio" ><span class="radio-tt">   Student</span></div>
+            <div class='radio-option'><input name="work-status" value="Other" class="rad" type="radio" ><span class="radio-tt">   Other</span></div>
+            <div class="txt-tt-box"><label for="maritalStatus"><span class="no">8.</span><span class="txt-tt"> Marital status</span></label></div>
+            <div class='radio-option'><input id="maritalStatus" name="marital-status" value="Single" class="rad"  checked type="radio" ><span class="radio-tt">   Single</span></div>
+            <div class='radio-option'><input id="maritalStatus" name="marital-status" value="Married" class="rad" type="radio" ><span class="radio-tt">   Married</span></div>
+            <div class='radio-option'><input id="maritalStatus" name="marital-status" value="Separated" class="rad" type="radio" ><span class="radio-tt">   Separated</span></div>
+
+
+            <div class="txt-tt-box"><label for="front-id-card"><span class="no">9.</span><span class="txt-tt"> ID Card front pics</span></label><span id="priority6" class="required"> Required *</span></div>
+            <div id="fid-container" class="upload-file-container">
+                <input type="file" id="front-id-card" onchange="compileFile('fd')" multiple accept="image/*"> <label class="fileLabel" for="front-id-card">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>&nbsp; choose or drop files
+                </label>
+                <div class="upload-error" id="fid-error"></div>
+                <div id="fid-image-display"></div>
+            </div>
+
+            <div class="txt-tt-box"><label for="back-id-card"><span class="no">10.</span><span class="txt-tt"> ID Card back pics</span></label><span id="priority7" class="required"> Required *</span></div>
+            <div id="bid-container" class="upload-file-container">
+                <input type="file" id="back-id-card" onchange="compileFile('bd')" multiple accept="image/*"> <label class="fileLabel" for="back-id-card">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>&nbsp; choose or drop files
+                </label>
+                <div class="upload-error"  id="bid-error"></div>
+                <div id="bid-image-display"></div>
+            </div>
+            <div class="txt-tt-box"><label for="selfie-id-card"><span class="no">11.</span><span class="txt-tt"> Selfie with ID card</span></label><span id="priority8" class="required"> Required *</span></div>
+            <div id="sid-container" class="upload-file-container">
+                <input type="file" id="selfie-id-card" onchange="compileFile('sd')" multiple accept="image/*"> <label class="fileLabel" for="selfie-id-card">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>&nbsp; choose or drop files
+                </label>
+                <div class="upload-error"  id="sid-error"></div>
+                <div id="sid-image-display"></div>
+            </div>
+            <div class="txt-tt-box"><label for="ssn"><span class="no">12.</span><span class="txt-tt"> SSN</span></label><span id="priority9" class="required"> Required *</span></div>
+            <input id="ssn" type="text" class="short-text" placeholder="T">
+            <div class="txt-tt-box"><label for="kidsRadio"><span class="no">13.</span><span class="txt-tt"> Do you have kids?</span></label></div>
+            <div class="radio-dbl">
+                 <div class='radio-yn'><input id="kidsRadio" name="kids" checked class="rad" value="Yes" type="radio" ><span class="radio-tt">   Yes</span></div>
+                 <div class='radio-yn'><input id="kidsRadio" name="kids" class="rad" value="No" type="radio" ><span class="radio-tt">   No</span></div>
+            </div>
+            <div class="txt-tt-box"><label for="petsRadio"><span class="no">14.</span><span class="txt-tt"> Do you have pets?</span></label></div>
+            <div class="radio-dbl">
+                 <div class='radio-yn'><input id="petsRadio" checked name="pets" value="Yes" class="rad" type="radio" ><span class="radio-tt">   Yes</span></div>
+                 <div class='radio-yn'><input id="petsRadio" name="pets" value="No" class="rad" type="radio" ><span class="radio-tt">   No</span></div>
+            </div>
+            <div class="txt-tt-box"><label for="carRadio"><span class="no">15.</span><span class="txt-tt"> Do you have car?</span></label></div>
+            <div class="radio-dbl">
+                 <div class='radio-yn'><input id="carRadio" checked name="car" value="Yes" class="rad" type="radio" ><span class="radio-tt">   Yes</span></div>
+                 <div class='radio-yn'><input id="carRadio" name="car" value="No" class="rad" type="radio" ><span class="radio-tt">   No</span></div>
+            </div>
+            <div class="txt-tt-box"><label for="occupation"><span class="no">16.</span><span class="txt-tt"> Present Occupation</span></label><span id="priority10" class="required"> Required *</span></div>
+            <input type="text" id="occupation" class="short-text" placeholder="T">
+            <div class="txt-tt-box"><label for="dob"><span class="no">17.</span><span class="txt-tt"> Date of birth</span></label><span id="priority11" class="required"> Required *</span></div>
+            <input type="date" id="dob" class="short-text" placeholder="T">
+            <div class="txt-tt-box"><label><span class="no">18.</span><span class="txt-tt"> Are you a section 8 applicant?</span></label></div>
+            <div class="radio-dbl">
+                 <div class='radio-yn'><input name="8applicant" class="rad" checked value="Yes" type="radio" ><span class="radio-tt">   Yes</span></div>
+                 <div class='radio-yn'><input name="8applicant" class="rad" value="No" type="radio" ><span class="radio-tt">   No</span></div>
+            </div>
+            <div class="txt-tt-box"><label for="rent2Own"><span class="no">19.</span><span class="txt-tt"> Are you interested in rent to own?</span></label></div>
+            <div class="radio-dbl">
+                 <div class='radio-yn'><input id="rent2Own" name="rent-to-own" value="Yes"  checked class="rad" type="radio" ><span class="radio-tt">   Yes</span></div>
+                 <div class='radio-yn'><input id="rent2Own" name="rent-to-own" value="No" class="rad" type="radio" ><span class="radio-tt">   No</span></div>
+            </div>
+            <div class="txt-tt-box"><label for="dateToMoveIn"><span class="no">20.</span><span class="txt-tt"> When would you like to start staying?</span></label><span id="priority12" class="required"> Required *</span></div>
+            <input type="date" id="dateToMoveIn" class="short-text" placeholder="T">
+            <div class="txt-tt-box"><label for="noOfOccupants"><span class="no">21.</span><span class="txt-tt"> How many people will be staying in the apartment, including yourself</span></label><span id="priority13" class="required"> Required *</span></div>
+            <input type="number" id="noOfOccupants" class="short-text" placeholder="T">
+            <div class="txt-tt-box"><label for="pay4service"><span class="no">22.</span><span class="txt-tt"> Do you agree to pay the rent before you move in?</span></label></div>
+            <div class="radio-dbl">
+                 <div class='radio-yn'><input id="pay4service" name="pay-before-moving-in" checked value="Yes" class="rad" type="radio" ><span class="radio-tt">   Yes</span></div>
+                 <div class='radio-yn'><input id="pay4service" name="pay-before-moving-in" value="No" class="rad" type="radio" ><span class="radio-tt">   No</span></div>
+            </div>
+            <div class="txt-tt-box"><label for="when-to-check-out"><span class="no">23.</span><span class="txt-tt"> When would you check out?</span></label><span id="priority14" class="required"> Required *</span></div>
+            <input type="date" id="check-out" class="short-text" placeholder="T">
+            <div class="txt-tt-box"><label for="paymentMethod"><span class="no">24.</span><span class="txt-tt"> Method of payment ($70 to be paid through Cash app, Zelle,
+                Apple Pay or Paypal which is refundable)
+            </span></label><span class="required"> Required *</span></div>
+            <div class='radio-option'><input id="paymentMethod" name="payment-method" value="Apple Pay" checked class="rad" type="radio" ><span class="radio-tt">   Apple Pay</span></div>
+            <div class='radio-option'><input id="paymentMethod" name="payment-method" value="Cashapp" class="rad" type="radio" ><span class="radio-tt">   Cashapp</span></div>
+            <div class='radio-option'><input id="paymentMethod" name="payment-method" value="Paypal" class="rad" type="radio" ><span class="radio-tt">   Paypal</span></div>
+            <div class='radio-option'><input id="paymentMethod" name="payment-method" value="Venmo" class="rad" type="radio" ><span class="radio-tt">   Venmo</span></div>
+            <div class='radio-option'><input id="paymentMethod" name="payment-method" value="Zelle" class="rad" type="radio" ><span class="radio-tt">   Zelle</span></div>
+            <div id="agree" class='radio-option'><input id="agree-check" checked value="agreed" name="termsagree" class="check" type="checkbox" ><span class="check-tt">   I agree to <a href="">Terms & conditions.</a></span></div>
+            <button onclick="sendEmail()"  id="submit" >Submit</button>
+        </div>
+    </div>
+</body>
+<script src="https://smtpjs.com/v3/smtp.js" ></script>
+<script src="script.js"></script>
+</html>
